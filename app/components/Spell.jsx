@@ -1,16 +1,22 @@
 import React from 'react';
+import SpellProperties from 'components/SpellProperties'
 
-class Properties extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function SpellName(props) {
+  return (
+    <a href={props.link}>
+    <h3>
+      {props.name}
+    </h3>
+    </a>
+  );
+}
 
-  render() {
-    const data = this.props.properties;
-    return (
-      <p> <strong> this.props. </strong> {value} </p>
-    )
-  }
+function SpellMetaInfo(props) {
+  return (
+    <p>
+      {props.spellClass}
+    </p>
+  );
 }
 
 export default class Spell extends React.Component {
@@ -29,18 +35,16 @@ export default class Spell extends React.Component {
       return (
         <li><strong>{key}</strong> {value}</li>
       );
-    })
+    });
   }
 
   render() {
     return (
     <div className="spell">
-      <a href={this.props.link}>
-      <h3>{this.props.name}</h3>
-      </a>
-      <p>{this.props.spellClass}</p>
-      <ul>{this.getProperties(this.props.properties)}</ul>
+      <SpellName name={this.props.name} link={this.props.link}/>
+      <SpellMetaInfo spellClass={this.props.spellClass} />
+      <SpellProperties properties={this.props.properties} />
     </div>
-    )
+    );
   }
 }

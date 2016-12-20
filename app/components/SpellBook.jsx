@@ -9,8 +9,6 @@ export default class SpellBook extends React.Component {
     this.state = {spells: []}
   }
 
-
-
   createSpell(spell) {
     return <Spell name={spell.name} link={spell.link} spellClass={spell.spellclass} properties={spell.properties} />
   }
