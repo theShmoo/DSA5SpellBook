@@ -14,12 +14,10 @@ export default class SpellProperties extends React.Component {
   }
 
   createProperties(p) {
-    spellProperties = Object.keys(p).map( function (name) {
-        return (
-            <SpellProperty name={name} text={p[name]} />
-          );
+    var spellProperties = Object.keys(p).map( function (name) {
+        return <SpellProperty name={name} text={p[name]} />;
       });
-    { properties : spellProperties});
+    this.setState({ properties : spellProperties });
   }
 
   componentDidMount() {
@@ -27,8 +25,6 @@ export default class SpellProperties extends React.Component {
   }
 
   render() {
-    return (
-      {this.state.properties}
-    )
+    return <ul> {this.state.properties} </ul>
   }
 }
