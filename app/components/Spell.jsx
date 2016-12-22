@@ -1,5 +1,5 @@
-import React from 'react';
-import SpellProperties from 'components/SpellProperties'
+import React from "react";
+import SpellProperties from "components/SpellProperties";
 
 function SpellName(props) {
   return (
@@ -12,7 +12,7 @@ function SpellName(props) {
 }
 
 function SpellMetaInfo(props) {
-  return <p> {props.spellClass} </p>;
+  return <p class="meta-info-field"> {props.spellClass} </p>;
 }
 
 export default class Spell extends React.Component {
@@ -36,11 +36,11 @@ export default class Spell extends React.Component {
 
   render() {
     return (
-    <div className="spell">
-      <SpellName name={this.props.name} link={this.props.link} />
-      <SpellMetaInfo spellClass={this.props.spellClass} />
-      <SpellProperties properties={this.props.properties} />
-    </div>
+      <div className="spell">
+        <SpellName name={this.props.name} link={this.props.link} />
+        <SpellMetaInfo spellClass={this.props.spellClass} />
+        <SpellProperties properties={this.props.properties} />
+      </div>
     );
   }
 }

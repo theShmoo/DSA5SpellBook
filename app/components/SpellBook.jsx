@@ -1,50 +1,38 @@
-import React from 'react';
-import Spell from 'components/Spell'
-import Sort from 'components/Sort'
-import data from './data.js'
-
-
-function SpellList(props) {
-  return <div className="spells"> {props.list} </div>;
-}
+import React from "react";
+import SpellList from "components/SpellList";
+import FilterWidget from "components/FilterWidget";
 
 export default class SpellBook extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {spells: []}
-    this.sortSpellsBy = this.sortSpellsBy.bind(this)
+    this.state = {
+      filter: {
+        name : ""
+      }
+    };
+
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
-  sortSpellsBy(field) {
-    var sortedSpells = this.state.spells.sort((a,b) => {
-      if(a.props[field] < b.props[field]) return -1;
-      if(a.props[field] > b.props[field]) return 1;
-      return 0;
-    });
-
-    this.setState({'spells': sortedSpells})
-  }
-
-  createSpell(spell) {
-    return <Spell name={spell.name} link={spell.link} spellClass={spell.spellclass} properties={spell.properties}/>
-  }
-
-  createSpells(json_spells) {
+  handleFilter(filter) {
     this.setState({
-      spells: json_spells.map(this.createSpell)
+      filter: filter
     });
-  }
-
-  componentDidMount() {
-    this.createSpells(data.Spells)
   }
 
   render() {
     return (
       <div className="spellbook">
-        <Sort sortSpellsBy={this.sortSpellsBy}/>
-        <SpellList list={this.state.spells} />
+        <FilterWidget
+          spells={this.props.spells}
+          filter={this.state.filter}
+          onUserInput={this.handleFilter}
+        />
+        <SpellList
+          spells={this.props.spells}
+          filter={this.state.filter}
+        />
       </div>
     );
   }
