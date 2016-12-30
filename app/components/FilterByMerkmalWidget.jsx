@@ -3,7 +3,7 @@ import React from "react";
 const DEFAULT_MERKMAL = "Merkmal auswählen...";
 const MERKMALE = [DEFAULT_MERKMAL, "Elementar", "Antimagie", "Heilung", "Illusion", "Sphären", "Objekt", "Einfluss", "Telekinese", "Dämonisch", "Hellsicht", "Verwandlung", "Zeit"];
 
-export default class FilterByMerkmalWidget extends React.Component {
+export default class FilterSpellPropertiesWidget extends React.Component {
 
   constructor(props) {
     super(props);

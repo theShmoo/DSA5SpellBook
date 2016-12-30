@@ -12,7 +12,7 @@ function SpellName(props) {
 }
 
 function SpellMetaInfo(props) {
-  return <p class="meta-info-field"> {props.spellClass} </p>;
+  return <p className="meta-info-field"> {props.spellClass} </p>;
 }
 
 export default class Spell extends React.Component {

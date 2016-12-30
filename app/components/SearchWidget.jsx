@@ -15,16 +15,16 @@ export default class SearchWidget extends React.Component {
 
   render() {
     return (
-      <div className="search-section">
-        <h3>Search</h3>
+      <div className="filter-section">
+        <strong>Suchen </strong>
         <input
           className="search-field"
           ref={(input) => this.filterTextInput = input}
-          placeholder="Search..."
+          placeholder="Namenssuche..."
           value={this.props.filterName}
           type="search"
-          onChange={this.search} />
+          onInput={this.search} />
       </div>
-    )
+    );
   }
 }

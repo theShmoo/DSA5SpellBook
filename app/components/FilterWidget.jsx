@@ -1,31 +1,40 @@
 import React from "react";
 import SearchWidget from "components/SearchWidget";
-import FilterSpellPropertiesWidget from "components/FilterSpellPropertiesWidget";
+import FilterPropertiesWidget from "components/FilterPropertiesWidget";
+import FilterState from "components/FilterState";
 
 export default class FilterWidget extends React.Component {
 
   constructor(props) {
     super(props);
 
+    this.state = {
+      filter : new FilterState()
+    };
+
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleFilterInput = this.handleFilterInput.bind(this);
   }
 
   handleSearchInput(searchTerm) {
-    var filter = {name: searchTerm};
-    this.props.onUserInput(filter);
+    var newFiler = this.state.filter;
+    newFiler.name = searchTerm;
+    this.setState({filter: newFiler});
+    this.props.onUserInput(newFiler);
   }
 
-  handleFilterInput(searchTerm) {
-    var filter = {name: searchTerm};
-    this.props.onUserInput(filter);
+  handleFilterInput(filter) {
+    var newFiler = this.state.filter;
+    newFiler.property = filter;
+    this.setState({filter: newFiler});
+    this.props.onUserInput(newFiler);
   }
 
   render() {
     return (
-      <div className="filter-section">
+      <div className="filter-widget">
         <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
-        <FilterSpellPropertiesWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
+        <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
       </div>
     );
   }
