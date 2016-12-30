@@ -16,9 +16,20 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div id="content">
-        <h2>DSA5 Spell Book</h2>
+      <div id="app">
+        <div className="jumbotron">
+          <div className="container text-center">
+            <h1>DSA 5 Spell Book</h1>
+          </div>
+        </div>
         <SpellBook spells={this.sortSpells(data.Spells)}/>
+        <footer className="container-fluid text-center">
+          <p>Online Store Copyright</p>
+          <form className="form-inline">Get deals:
+            <input type="email" className="form-control" size="50" placeholder="Email Address" />
+            <button type="button" className="btn btn-danger">Sign Up</button>
+          </form>
+        </footer>
       </div>
     );
   }

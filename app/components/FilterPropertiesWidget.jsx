@@ -25,7 +25,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
 
   render() {
     return (
-      <div className="properties-filter-section">
+      <div className="form-group">
         <FilterByMerkmalWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
         <FilterByDisseminationWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
       </div>

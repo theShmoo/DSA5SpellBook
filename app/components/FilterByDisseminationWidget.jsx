@@ -30,11 +30,11 @@ export default class FilterSpellPropertiesWidget extends React.Component {
 
   render() {
     return (
-      <div className="filter-section">
-        <strong>Verbreitung </strong>
+      <div className="form-group">
+        <label for="filter-dissemination-select" className="control-label">Verbreitung</label>
         <select
-          name="selectDissemination"
           id="filter-dissemination-select"
+          className="form-control"
           ref={(input) => this.filterInput = input}
           onClick={this.filter}>
           {this.getDissemination()}

@@ -30,11 +30,11 @@ export default class FilterSpellPropertiesWidget extends React.Component {
 
   render() {
     return (
-      <div className="filter-section">
-        <strong>Merkmal </strong>
+      <div className="form-group">
+        <label for="filter-merkmale-select" className="control-label">Merkmal</label>
         <select
-          name="selectMerkmale"
           id="filter-merkmale-select"
+          className="form-control"
           ref={(input) => this.merkmalFilterInput = input}
           onClick={this.filter}>
           {this.getMerkmale()}

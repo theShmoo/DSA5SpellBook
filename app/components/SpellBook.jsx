@@ -22,7 +22,7 @@ export default class SpellBook extends React.Component {
 
   render() {
     return (
-      <div className="spellbook">
+      <div className="container">
         <FilterWidget
           spells={this.props.spells}
           filter={this.state.filter}

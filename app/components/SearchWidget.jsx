@@ -15,10 +15,11 @@ export default class SearchWidget extends React.Component {
 
   render() {
     return (
-      <div className="filter-section">
-        <strong>Suchen </strong>
+      <div className="form-group">
+        <label for="filter-name-search" className="control-label">Suche</label>
         <input
-          className="search-field"
+          id="filter-name-search"
+          className="form-control"
           ref={(input) => this.filterTextInput = input}
           placeholder="Namenssuche..."
           value={this.props.filterName}
