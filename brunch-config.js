@@ -6,7 +6,12 @@ module.exports = {
         'app.js': /^app/
       }
     },
-    stylesheets: {joinTo: 'app.css'}
+    stylesheets: {
+      joinTo: {
+        'vendor.css': /^(?!app)/,
+        'app.css': /^app/
+      }
+    }
   },
 
   plugins: {
