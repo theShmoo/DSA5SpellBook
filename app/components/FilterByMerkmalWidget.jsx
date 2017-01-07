@@ -11,7 +11,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   }
 
   filter() {
-    var filter = {};
+    var filter = {"Merkmal": ""};
     if(this.merkmalFilterInput.value != DEFAULT_MERKMAL)
       filter = {"Merkmal": this.merkmalFilterInput.value};
     this.props.onUserInput(filter);
@@ -31,7 +31,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label for="filter-merkmale-select" className="control-label">Merkmal</label>
+        <label htmlFor="filter-merkmale-select" className="control-label navbar-text">Merkmal</label>
         <select
           id="filter-merkmale-select"
           className="form-control"

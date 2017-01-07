@@ -36,7 +36,7 @@ export default class Spell extends React.Component {
 
   render() {
     return (
-      <div className="col-xs-4">
+      <div className="col-xs-6 col-sm-4">
         <SpellName name={this.props.name} link={this.props.link} />
         <SpellMetaInfo spellClass={this.props.spellClass} />
         <SpellProperties properties={this.props.properties} />

@@ -11,7 +11,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   }
 
   filter() {
-    var filter = {};
+    var filter = {"Verbreitung": DEFAULT_DISSEMINATION};
     if(this.filterInput.value != DEFAULT_DISSEMINATION)
       filter = {"Verbreitung": this.filterInput.value};
     this.props.onUserInput(filter);
@@ -31,7 +31,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label for="filter-dissemination-select" className="control-label">Verbreitung</label>
+        <label htmlFor="filter-dissemination-select" className="control-label navbar-text">Verbreitung</label>
         <select
           id="filter-dissemination-select"
           className="form-control"

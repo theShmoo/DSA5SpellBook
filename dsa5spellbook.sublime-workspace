@@ -1,0 +1,789 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/components/FilterByDisseminationWidget.jsx",
+			"settings":
+			{
+				"buffer_size": 1196,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/SearchWidget.jsx",
+			"settings":
+			{
+				"buffer_size": 724,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/FilterPropertiesWidget.jsx",
+			"settings":
+			{
+				"buffer_size": 919,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/SpellList.jsx",
+			"settings":
+			{
+				"buffer_size": 1138,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Spell.jsx",
+			"settings":
+			{
+				"buffer_size": 943,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/SpellProperties.jsx",
+			"settings":
+			{
+				"buffer_size": 847,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/SpellBook.jsx",
+			"settings":
+			{
+				"buffer_size": 811,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/assets/index.html",
+			"settings":
+			{
+				"buffer_size": 471,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/App.jsx",
+			"settings":
+			{
+				"buffer_size": 1001,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/_main.less",
+			"settings":
+			{
+				"buffer_size": 331,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/FilterByMerkmalWidget.jsx",
+			"settings":
+			{
+				"buffer_size": 1215,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/FilterWidget.jsx",
+			"settings":
+			{
+				"buffer_size": 1281,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/FilterState.jsx",
+			"settings":
+			{
+				"buffer_size": 1233,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 374.0,
+		"last_filter": "lint",
+		"selected_items":
+		[
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"snippet",
+				"Snippet: React: component skeleton"
+			],
+			[
+				"snippet ",
+				"Snippet: Prototype"
+			],
+			[
+				"packag ",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"packac",
+				"Install Package Control"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/Dropbox/Projekte/DSA5Spellbook",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/assets",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/styles"
+	],
+	"file_history":
+	[
+		"/E/Dropbox/Projekte/DSA5Spellbook/dsa5spellbook.sublime-workspace",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/package.json",
+		"/E/Dropbox/Projekte/DSA5Spellbook/dsa5spellbook.sublime-project",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/FilterSpellPropertiesWidget.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/brunch-config.js",
+		"/E/Dropbox/Projekte/DSA5Spellbook/bower.json",
+		"/E/Dropbox/Projekte/DSA5Spellbook/package.json",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/FilterPropertiesWidget.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/FilterByDisseminationWidget.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/App.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/SearchWidget.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/NavigationWidget.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/public/vendor.css",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/bower.json",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/SpellList.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/data.js",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/FilterState.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/Sort.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/Spell.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/SpellBook.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/SpellProperties.jsx",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/FilterWidget.jsx",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/brunch-config.coffee",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/assets/index.html",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/initialize.js",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/public/vendor.css",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/app/views/charts.jade",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/app/styles/structure.less",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/styles/_variables.less",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/styles/structure.less",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/app/assets/index.html",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/styles/_main.less",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/styles/application.less",
+		"/E/Dropbox/Uni/Masterstudium Visual Computing/Praktikum aus Visual Computing/media transparency/app/styles/_loader.less",
+		"/E/Dropbox/Projekte/DSA5Spellbook/node_modules/bootstrap/README.md",
+		"/E/Dropbox/Projekte/DSA5Spellbook/app/components/filterState.js",
+		"/E/Dropbox/Projekte/DSA5RegelWikiParser/regelwikiparser/items.py",
+		"/E/Dropbox/Projekte/DSA5RegelWikiParser/regelwikiparser/pipelines.py",
+		"/E/Dropbox/Projekte/DSA5RegelWikiParser/regelwikiparser/spiders/zauber_spider.py",
+		"/E/Dropbox/Projekte/DSA5RegelWikiParser/regelwikiparser/__init__.py",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/public/app.js",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/app/components/App.jsx",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/E/Dropbox/Projekte/DSA5RegelWikiParser/file.json",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/app/assets/index.html",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/app/initialize.js",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/app/components/Spell.jsx",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/brunch-config.js",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/package.json",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/scripts/server.sh",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/scripts/server.bat",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/scripts/init.bat",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/bower.json",
+		"/E/Dropbox/Projekte/DSA5WebSpellbook/WebSpellBook/CONVENTIONS.md",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/User/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 89.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"property",
+			"<label",
+			"\"properties\": {}",
+			"form-group",
+			"fromGroup",
+			"for=\"",
+			"class",
+			"'",
+			"oldFiler",
+			"searchTerm",
+			"getMerkmale",
+			"merkmalFilterInput",
+			"Fortifex",
+			"newProperty",
+			"oldState",
+			"short",
+			"{\"link\"",
+			"scrapy",
+			"Request",
+			"scrapy.",
+			"item"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 12,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/components/FilterByDisseminationWidget.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/SearchWidget.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								404,
+								404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/FilterPropertiesWidget.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 919,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								480,
+								480
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/SpellList.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/Spell.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								863,
+								878
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/components/SpellProperties.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/SpellBook.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								391,
+								391
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/assets/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 471,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/components/App.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								795,
+								819
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/styles/_main.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
+								328
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/components/FilterByMerkmalWidget.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52,
+								74
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/components/FilterWidget.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/components/FilterState.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								597,
+								597
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "dsa5spellbook.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 280.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

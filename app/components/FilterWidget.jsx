@@ -32,10 +32,14 @@ export default class FilterWidget extends React.Component {
 
   render() {
     return (
-      <form className="form-inline">
-        <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
-        <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
-      </form>
+      <nav className="navbar">
+        <div className="container-fluid">
+          <form className="navbar-form navbar-left">
+            <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
+            <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
+          </form>
+        </div>
+      </nav>
     );
   }
 }

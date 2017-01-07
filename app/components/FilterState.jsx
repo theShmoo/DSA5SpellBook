@@ -2,6 +2,11 @@ function fuzzyStringCompare(str1, str2) {
   return str1.toLowerCase().includes(str2.toLowerCase());
 }
 
+const DEFAULT_PROPERTIES = {
+  Merkmal: "#####",
+  Verbreitung: "Allgemein"
+};
+
 export default class FilterState {
   constructor () {
     this._name = "";
@@ -20,18 +25,29 @@ export default class FilterState {
     return !fuzzyStringCompare(spell.name,this.name);
   }
 
-  get property() {
+  get properties() {
     return this._properties;
   }
 
-  set property(newProperty) {
+  set properties(newProperty) {
     this._properties = newProperty;
   }
 
   filterForProperty(spell) {
     var filtered = false;
-    for (var k in this.property) {
-      filtered = filtered || !((k in spell.properties) && (fuzzyStringCompare(spell.properties[k],this.property[k])));
+    for (var k in this.properties) {
+      if(k in spell.properties) {
+        if(fuzzyStringCompare(spell.properties[k],DEFAULT_PROPERTIES[k]))
+          filtered = false;
+        else if(fuzzyStringCompare(spell.properties[k],this.properties[k]))
+          filtered = false;
+        else {
+          filtered = true;
+          break;
+        }
+      }
+      if (filtered)
+        break;
     }
     return filtered;
   }

@@ -2,9 +2,10 @@ import React from "react";
 
 function SpellProperty(props) {
   return (
-    <li key={props.name}>
-      <strong>{props.name}</strong> {props.text}
-    </li>
+    <div key={props.name} className="list-group-item">
+      <strong className="list-group-item-heading">{props.name}</strong>
+      <p className="list-group.item-text">{props.text}</p>
+    </div>
   );
 }
 
@@ -27,6 +28,10 @@ export default class SpellProperties extends React.Component {
   }
 
   render() {
-    return (<ul> {this.state.properties} </ul>);
+    return (
+      <div className="list-group">
+        {this.state.properties}
+      </div>
+    );
   }
 }
