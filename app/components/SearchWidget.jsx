@@ -16,7 +16,7 @@ export default class SearchWidget extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor="filter-name-search" className="control-label navbar-text">Suche</label>
+        <label htmlFor="filter-name-search" className="control-label">Suche</label>
         <input
           id="filter-name-search"
           className="form-control"

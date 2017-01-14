@@ -35,7 +35,7 @@ export default class ClassWidget extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor="filter-classes" className="control-label navbar-text">Zauberklassen</label>
+        <label htmlFor="filter-classes" className="control-label">Zauberklassen</label>
         <Multiselect
           id="filter-classes"
           data={this.state.list}

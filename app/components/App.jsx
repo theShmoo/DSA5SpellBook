@@ -24,11 +24,9 @@ export default class App extends React.Component {
         </div>
         <SpellBook spells={this.sortSpells(data.Spells)}/>
         <footer className="container-fluid text-center">
-          <p>Online Store Copyright</p>
-          <form className="form-inline">Get deals:
-            <input type="email" className="form-control" size="50" placeholder="Email Address" />
-            <button type="button" className="btn btn-danger">Sign Up</button>
-          </form>
+          <p>Website von <strong>David Pfahler</strong></p>
+          <p>Anregungen und Probleme bitte <a href="https://github.com/theShmoo/DSA5SpellBook/issues">hier</a> melden.</p>
+          <p>Daten sind vom <a href="http://www.ulisses-regelwiki.de/">Ulisses-DSA-Regel-Wiki</a> und geparsed von meinem <a href="https://github.com/theShmoo/DSA5RegelWikiParser">DSA5RegelWikiParser</a> mit <a href="https://scrapy.org/">Scrapy</a>.</p>
         </footer>
       </div>
     );

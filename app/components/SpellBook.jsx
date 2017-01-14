@@ -23,15 +23,19 @@ export default class SpellBook extends React.Component {
   render() {
     return (
       <div className="container">
-        <FilterWidget
-          spells={this.props.spells}
-          filter={this.state.filter}
-          onUserInput={this.handleFilter}
-        />
-        <SpellList
-          spells={this.props.spells}
-          filter={this.state.filter}
-        />
+        <div className="container">
+          <FilterWidget
+            spells={this.props.spells}
+            filter={this.state.filter}
+            onUserInput={this.handleFilter}
+          />
+        </div>
+        <div className="container">
+          <SpellList
+            spells={this.props.spells}
+            filter={this.state.filter}
+          />
+        </div>
       </div>
     );
   }

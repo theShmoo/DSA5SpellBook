@@ -31,7 +31,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor="filter-dissemination-select" className="control-label navbar-text">Verbreitung</label>
+        <label htmlFor="filter-dissemination-select" className="control-label">Verbreitung</label>
         <select
           id="filter-dissemination-select"
           className="form-control"
