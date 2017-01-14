@@ -11,6 +11,7 @@ export default class FilterState {
   constructor () {
     this._name = "";
     this._properties = {};
+    this._spellClasses = ["Zaubertrick","Ritual", "Zauberspruch"];
   }
 
   get name() {
@@ -21,23 +22,33 @@ export default class FilterState {
     this._name = newName;
   }
 
-  filterForName(spell) {
-    return !fuzzyStringCompare(spell.name,this.name);
-  }
-
   get properties() {
     return this._properties;
   }
 
-  set properties(newProperty) {
-    this._properties = newProperty;
+  set properties(newProperties) {
+    this._properties = newProperties;
   }
 
-  filterForProperty(spell) {
+  get spellClasses() {
+    return this._spellClasses;
+  }
+
+  set spellClasses(newSpellClasses) {
+    this._spellClasses = newSpellClasses;
+  }
+
+  filterForName(spell) {
+    return !fuzzyStringCompare(spell.name,this.name);
+  }
+
+  filterForProperties(spell) {
     var filtered = false;
     for (var k in this.properties) {
       if(k in spell.properties) {
-        if(fuzzyStringCompare(spell.properties[k],DEFAULT_PROPERTIES[k]))
+        if(fuzzyStringCompare(this.properties[k],DEFAULT_PROPERTIES[k]))
+          filtered = false;
+        else if(fuzzyStringCompare(spell.properties[k],DEFAULT_PROPERTIES[k]))
           filtered = false;
         else if(fuzzyStringCompare(spell.properties[k],this.properties[k]))
           filtered = false;
@@ -52,10 +63,16 @@ export default class FilterState {
     return filtered;
   }
 
+  filterForSpellClasses(spell) {
+    return !(this.spellClasses.indexOf(spell.spellclass) > -1);
+  }
+
   filterSpell (spell) {
     if(this.filterForName(spell))
       return false;
-    if(this.filterForProperty(spell))
+    if(this.filterForProperties(spell))
+      return false;
+    if(this.filterForSpellClasses(spell))
       return false;
     return true;
   }

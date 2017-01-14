@@ -1,6 +1,7 @@
 import React from "react";
 import SearchWidget from "components/SearchWidget";
 import FilterPropertiesWidget from "components/FilterPropertiesWidget";
+import ClassWidget from "components/ClassWidget";
 import FilterState from "components/FilterState";
 
 export default class FilterWidget extends React.Component {
@@ -13,7 +14,8 @@ export default class FilterWidget extends React.Component {
     };
 
     this.handleSearchInput = this.handleSearchInput.bind(this);
-    this.handleFilterInput = this.handleFilterInput.bind(this);
+    this.handlePropertiesInput = this.handlePropertiesInput.bind(this);
+    this.handleClassInput = this.handleClassInput.bind(this);
   }
 
   handleSearchInput(searchTerm) {
@@ -23,9 +25,16 @@ export default class FilterWidget extends React.Component {
     this.props.onUserInput(newFiler);
   }
 
-  handleFilterInput(filter) {
+  handlePropertiesInput(filter) {
     var newFiler = this.state.filter;
-    newFiler.property = filter;
+    newFiler.properties = filter;
+    this.setState({filter: newFiler});
+    this.props.onUserInput(newFiler);
+  }
+
+  handleClassInput(usedClasses) {
+    var newFiler = this.state.filter;
+    newFiler.spellClasses = usedClasses;
     this.setState({filter: newFiler});
     this.props.onUserInput(newFiler);
   }
@@ -35,8 +44,11 @@ export default class FilterWidget extends React.Component {
       <nav className="navbar">
         <div className="container-fluid">
           <form className="navbar-form navbar-left">
-            <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
-            <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
+            <div className="form-group">
+              <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
+              <ClassWidget onUserInput={this.handleClassInput} />
+            </div>
+            <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handlePropertiesInput}/>
           </form>
         </div>
       </nav>

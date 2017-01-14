@@ -3,7 +3,7 @@ import Spell from "components/Spell";
 
 function SpellListMetaInfo(props) {
   return (<div className="spell-list-meta-info">
-            {props.spells.length}
+            Wir haben <strong>{props.spells.length} Zauber</strong> gefunden
           </div>);
 }
 
