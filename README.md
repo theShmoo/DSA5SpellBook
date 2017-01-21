@@ -7,11 +7,11 @@ A web application to
  * search
  * order
 
- the DSA 5 spells
+the DSA 5 spells
 
-# Try it!
+## Try it!
 
-One one hand you could just download the `public` Folder from this repository and open the 'index.html' File in any browser you like.
+One one hand you could just download the `public` Folder from this repository and open the `index.html` File in any browser you like.
 
 On the other hand I uploaded these files to https://www.pfahler.at/dsaspellbook/.
 
