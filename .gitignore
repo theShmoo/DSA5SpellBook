@@ -25,3 +25,7 @@ node_modules/
 # Brunch output folder.
 public/
 bower_components/
+
+# Sublime Files
+dsa5spellbook.sublime-project
+dsa5spellbook.sublime-workspace
