@@ -1,11 +1,6 @@
 import React from "react";
+import { Row, Grid } from "react-bootstrap";
 import Spell from "components/Spell";
-
-function SpellListMetaInfo(props) {
-  return (<div className="spell-list-meta-info">
-            Wir haben <strong>{props.spells.length} Zauber</strong> gefunden
-          </div>);
-}
 
 export default class SpellList extends React.Component {
 
@@ -21,25 +16,39 @@ export default class SpellList extends React.Component {
     );
   }
 
+  SpellListMetaInfo(num_spells) {
+    return (
+      <div className="spell-list-meta-info">
+        Es wurden <strong>{num_spells} Zauber</strong> gefunden
+      </div>
+    );
+  }
+
   render() {
     var searchedSpells = this.props.spells.filter(
         (spell) => { return this.props.filter.filterSpell(spell); }
       );
+
     var groupedSpells = [];
+    /*
     var group = [];
     searchedSpells.map(this.createSpell).forEach(function(spell, i) {
       if(i % 3 == 0 && i != 0) {
-        groupedSpells.push(<div className="row" key={i/3}> {group} </div>);
+        groupedSpells.push(<Row key={i/3}> {group} </Row>);
         group = [];
       }
       group.push(spell);
     });
-    groupedSpells.push(<div className="row" key="last"> {group} </div>);
+    groupedSpells.push(<Row key="last"> {group} </Row>);
+    */
+
+    groupedSpells = searchedSpells.map((s) => {return this.createSpell(s);});
+
     return (
-      <div className="spells">
-        <SpellListMetaInfo spells={searchedSpells} />
+      <Grid fluid={true}>
+        {this.SpellListMetaInfo(searchedSpells.length)}
         {groupedSpells}
-      </div>
+      </Grid>
     );
   }
 }

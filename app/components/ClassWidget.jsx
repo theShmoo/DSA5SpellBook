@@ -1,9 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Multiselect from "react-bootstrap-multiselect";
+import { FormGroup, ControlLabel } from "react-bootstrap";
+import Select from "react-select";
 
 
-const SPELLCLASSES = [{value:"Zaubertrick", selected:true}, {value:"Ritual", selected:true}, {value:"Zauberspruch", selected:true}];
+
+const DEFAULT_CLASS= "Zauberspruch";
+
+const SPELLCLASSES = [
+  DEFAULT_CLASS,
+  "Fluch",
+  "Stabzauber",
+  "Ritual",
+  "Zaubertrick",
+  "Elfenlied",
+  "Ahnenzeichen",
+  "Dolchritual",
+  "Vertrautentrick",
+  "Verzerrtes Elfenlied",
+  "Bann und Schutzkreis",
+  "Herrschaftsritual"];
+
 
 export default class ClassWidget extends React.Component {
 
@@ -11,39 +28,40 @@ export default class ClassWidget extends React.Component {
     super(props);
 
     this.state = {
-      list: SPELLCLASSES
+      list: DEFAULT_CLASS
     };
 
     this.filter = this.filter.bind(this);
   }
 
-  filter() {
+  filter(val) {
     var filter = [];
 
-    var node = ReactDOM.findDOMNode(this.refs.classFilterInput);
-    var options = [].slice.call(node.querySelectorAll("option"));
-    var selected = options.filter(function (option) {
-      return option.selected;
-    });
-    filter = selected.map(function (option) {
-      return option.value;
-    });
+    if(val.constructor === Array)
+      filter = val.map(function (option) {
+        return option.value;
+      });
+    else
+      filter = val.value;
 
+    this.state.list = filter;
     this.props.onUserInput(filter);
+  }
+
+  getOptions() {
+    return SPELLCLASSES.map((m) => {return {value: m, label: m};});
   }
 
   render() {
     return (
-      <div className="form-group">
-        <label htmlFor="filter-classes" className="control-label">Zauberklassen</label>
-        <Multiselect
-          id="filter-classes"
-          data={this.state.list}
-          multiple
-          ref="classFilterInput"
+      <FormGroup controlId="filter-classes">
+        <ControlLabel>Zauberklassen</ControlLabel>
+        <Select
+          multi={true}
+          value={this.state.list}
           onChange={this.filter}
-          />
-      </div>
+          options={this.getOptions()} />
+      </FormGroup>
     );
   }
 }

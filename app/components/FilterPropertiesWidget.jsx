@@ -1,6 +1,7 @@
 import React from "react";
 import FilterByMerkmalWidget from "components/FilterByMerkmalWidget";
 import FilterByDisseminationWidget from "components/FilterByDisseminationWidget";
+import { Col } from "react-bootstrap";
 
 export default class FilterSpellPropertiesWidget extends React.Component {
 
@@ -25,9 +26,19 @@ export default class FilterSpellPropertiesWidget extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
-        <FilterByMerkmalWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
-        <FilterByDisseminationWidget spells={this.props.spells} onUserInput={this.handleFilterInput}/>
+      <div>
+        <Col md={6} sm={12}>
+          <FilterByMerkmalWidget
+            spells={this.props.spells}
+            onUserInput={this.handleFilterInput}
+          />
+        </Col>
+        <Col md={6} sm={12}>
+          <FilterByDisseminationWidget
+            spells={this.props.spells}
+            onUserInput={this.handleFilterInput}
+          />
+        </Col>
       </div>
     );
   }

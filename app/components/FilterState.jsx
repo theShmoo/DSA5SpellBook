@@ -11,7 +11,7 @@ export default class FilterState {
   constructor () {
     this._name = "";
     this._properties = {};
-    this._spellClasses = ["Zaubertrick","Ritual", "Zauberspruch"];
+    this._spellClasses = ["Zauberspruch"];
   }
 
   get name() {

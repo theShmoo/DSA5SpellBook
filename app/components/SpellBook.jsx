@@ -2,6 +2,7 @@ import React from "react";
 import SpellList from "components/SpellList";
 import FilterWidget from "components/FilterWidget";
 import FilterState from "components/FilterState";
+import { Row, Grid } from "react-bootstrap";
 
 export default class SpellBook extends React.Component {
 
@@ -22,21 +23,21 @@ export default class SpellBook extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="container">
+      <Grid>
+        <Row>
           <FilterWidget
             spells={this.props.spells}
             filter={this.state.filter}
             onUserInput={this.handleFilter}
           />
-        </div>
-        <div className="container">
+        </Row>
+        <Row>
           <SpellList
             spells={this.props.spells}
             filter={this.state.filter}
           />
-        </div>
-      </div>
+        </Row>
+      </Grid>
     );
   }
 }

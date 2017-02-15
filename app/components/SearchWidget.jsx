@@ -1,4 +1,5 @@
 import React from "react";
+import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
 
 export default class SearchWidget extends React.Component {
 
@@ -15,17 +16,15 @@ export default class SearchWidget extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
-        <label htmlFor="filter-name-search" className="control-label">Suche</label>
-        <input
-          id="filter-name-search"
-          className="form-control"
+      <FormGroup controlId="filter-name-search">
+        <ControlLabel>Suche</ControlLabel>
+        <FormControl
           ref={(input) => this.filterTextInput = input}
           placeholder="Namenssuche..."
           value={this.props.filterName}
           type="search"
-          onInput={this.search} />
-      </div>
+          onChange={this.search} />
+      </FormGroup>
     );
   }
 }

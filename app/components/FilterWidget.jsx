@@ -3,6 +3,7 @@ import SearchWidget from "components/SearchWidget";
 import FilterPropertiesWidget from "components/FilterPropertiesWidget";
 import ClassWidget from "components/ClassWidget";
 import FilterState from "components/FilterState";
+import { Form, FormGroup, Grid, Col } from "react-bootstrap";
 
 export default class FilterWidget extends React.Component {
 
@@ -41,13 +42,17 @@ export default class FilterWidget extends React.Component {
 
   render() {
     return (
-      <form className="form-inline">
-        <div className="form-group">
-          <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
-          <ClassWidget onUserInput={this.handleClassInput} />
-        </div>
-        <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handlePropertiesInput}/>
-      </form>
+      <Form>
+        <Grid>
+          <Col md={6} sm={12}>
+            <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
+          </Col>
+          <Col md={6} sm={12}>
+            <ClassWidget onUserInput={this.handleClassInput} />
+          </Col>
+          <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handlePropertiesInput}/>
+        </Grid>
+      </Form>
     );
   }
 }

@@ -1,45 +1,54 @@
 import React from "react";
+import { FormGroup, ControlLabel } from "react-bootstrap";
+import Select from "react-select";
 
 const DEFAULT_DISSEMINATION = "Allgemein";
-const DISSEMINATION = [DEFAULT_DISSEMINATION, "Druiden", "Elfen", "Gildenmagier", "Hexen", "Kristallomanten", "Scharlatane"];
+const DISSEMINATION = [
+  DEFAULT_DISSEMINATION,
+  "Druiden",
+  "Elfen",
+  "Gildenmagier",
+  "Hexen",
+  "Kristallomanten",
+  "Scharlatane"];
+
 
 export default class FilterSpellPropertiesWidget extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      list: DEFAULT_DISSEMINATION
+    };
+
     this.filter = this.filter.bind(this);
   }
 
-  filter() {
+  filter(val) {
     var filter = {"Verbreitung": DEFAULT_DISSEMINATION};
-    if(this.filterInput.value != DEFAULT_DISSEMINATION)
-      filter = {"Verbreitung": this.filterInput.value};
+    if(val.value != DEFAULT_DISSEMINATION)
+      filter = {"Verbreitung": val.value};
+
+    this.state.list = val.value;
     this.props.onUserInput(filter);
   }
 
-  getDissemination() {
-    return DISSEMINATION.map((m) => {
-      return (
-        <option
-          key={m}
-          value={m}>
-            {m}
-        </option>);
-    });
+  getOptions() {
+    return DISSEMINATION.map((m) => {return {value: m, label: m};});
   }
 
   render() {
     return (
-      <div className="form-group">
-        <label htmlFor="filter-dissemination-select" className="control-label">Verbreitung</label>
-        <select
-          id="filter-dissemination-select"
-          className="form-control"
-          ref={(input) => this.filterInput = input}
-          onClick={this.filter}>
-          {this.getDissemination()}
-        </select>
-      </div>
+      <FormGroup controlId="filter-dissemination-select">
+        <ControlLabel>Verbreitung</ControlLabel>
+        <Select
+          multi={false}
+          clearable={false}
+          value={this.state.list}
+          onChange={this.filter}
+          options={this.getOptions()} />
+      </FormGroup>
     );
   }
 }

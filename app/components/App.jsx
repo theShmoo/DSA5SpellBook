@@ -1,5 +1,6 @@
 import React from "react";
 import SpellBook from "components/SpellBook";
+import { Jumbotron } from "react-bootstrap";
 import data from "./data.js";
 
 export default class App extends React.Component {
@@ -17,11 +18,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div className="jumbotron">
-          <div className="container text-center">
-            <h1>DSA 5 Spell Book</h1>
-          </div>
-        </div>
+        <Jumbotron>
+          <h1>DSA 5 Spell Book</h1>
+        </Jumbotron>
         <SpellBook spells={this.sortSpells(data.Spells)}/>
         <footer className="container-fluid text-center">
           <p>Website von <strong>David Pfahler</strong></p>

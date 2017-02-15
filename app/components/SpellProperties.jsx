@@ -1,11 +1,15 @@
 import React from "react";
+import {ListGroup, ListGroupItem} from "react-bootstrap";
 
 function SpellProperty(props) {
   return (
-    <div key={props.name} className="list-group-item">
-      <strong className="list-group-item-heading">{props.name}</strong>
-      <p className="list-group.item-text">{props.text}</p>
-    </div>
+    <ListGroupItem
+      key={props.id}
+      header={props.name}>
+      {props.text.split("\n").map((item, key) => {
+        return <span key={key}>{item}<br/></span>;
+      })}
+    </ListGroupItem>
   );
 }
 
@@ -17,8 +21,8 @@ export default class SpellProperties extends React.Component {
   }
 
   createProperties(p) {
-    var spellProperties = Object.keys(p).map( function (name) {
-      return (<SpellProperty key={name} name={name} text={p[name]} />);
+    var spellProperties = Object.keys(p).map( function (name, id) {
+      return (<SpellProperty key={id} name={name} text={p[name]} id={id} />);
     });
     this.setState({ properties : spellProperties });
   }
@@ -29,9 +33,9 @@ export default class SpellProperties extends React.Component {
 
   render() {
     return (
-      <div className="list-group">
+      <ListGroup>
         {this.state.properties}
-      </div>
+      </ListGroup>
     );
   }
 }
