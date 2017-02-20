@@ -19,7 +19,7 @@ export default class SearchWidget extends React.Component {
       <FormGroup controlId="filter-name-search">
         <ControlLabel>Suche</ControlLabel>
         <FormControl
-          ref={(input) => this.filterTextInput = input}
+          inputRef={(input) => this.filterTextInput = input}
           placeholder="Namenssuche..."
           value={this.props.filterName}
           type="search"
