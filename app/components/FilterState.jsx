@@ -1,17 +1,15 @@
+import data from "./spellclassinfo";
+
+// returns true if the first string contains the second (in lower case)
 function fuzzyStringCompare(str1, str2) {
   return str1.toLowerCase().includes(str2.toLowerCase());
 }
-
-const DEFAULT_PROPERTIES = {
-  Merkmal: "#####",
-  Verbreitung: "Allgemein"
-};
 
 export default class FilterState {
   constructor () {
     this._name = "";
     this._properties = {};
-    this._spellClasses = ["Zauberspruch"];
+    this._spellClasses = [];
   }
 
   get name() {
@@ -44,18 +42,19 @@ export default class FilterState {
 
   filterForProperties(spell) {
     var filtered = false;
+    // iterate over all properties of the filter
     for (var k in this.properties) {
-      if(k in spell.properties) {
-        if(fuzzyStringCompare(this.properties[k],DEFAULT_PROPERTIES[k]))
-          filtered = false;
-        else if(fuzzyStringCompare(spell.properties[k],DEFAULT_PROPERTIES[k]))
-          filtered = false;
-        else if(fuzzyStringCompare(spell.properties[k],this.properties[k]))
-          filtered = false;
-        else {
-          filtered = true;
-          break;
+      // if a property is found (e.g. Merkmal)
+      if(k in spell.properties && this.properties[k].length) {
+        // check for the spell property if it is inside this list
+        var spell_p = spell.properties[k];
+        var isInList = false;
+        for( var p of this.properties[k]) {
+          isInList = fuzzyStringCompare(spell_p, p);
+          if (isInList)
+            break;
         }
+        filtered = !isInList;
       }
       if (filtered)
         break;
@@ -64,16 +63,19 @@ export default class FilterState {
   }
 
   filterForSpellClasses(spell) {
-    return !(this.spellClasses.indexOf(spell.spellclass) > -1);
+    if(this.spellClasses.length)
+      return !(this.spellClasses.indexOf(spell.spellclass) > -1);
+    else
+      return false;
   }
 
   filterSpell (spell) {
     if(this.filterForName(spell))
-      return false;
+      return true;
     if(this.filterForProperties(spell))
-      return false;
+      return true;
     if(this.filterForSpellClasses(spell))
-      return false;
-    return true;
+      return true;
+    return false;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import SpellProperties from "components/SpellProperties";
 import { Col, Tooltip, OverlayTrigger, Glyphicon, Button } from "react-bootstrap";
+import data from "./spellclassinfo";
 
 function LinkWithTooltip(props) {
   let tooltip = <Tooltip id="ltr">{props.tooltip}</Tooltip>;
@@ -15,8 +16,9 @@ function LinkWithTooltip(props) {
 }
 
 function SpellName(props) {
+  let tooltip = props.name + " im Regelwiki";
   return (
-    <LinkWithTooltip tooltip="Link zum Ulisses Regelwiki" href={props.link}><h3>{props.name}</h3></LinkWithTooltip>
+    <LinkWithTooltip tooltip={tooltip} href={props.link}><h3>{props.name}</h3></LinkWithTooltip>
   );
 }
 
@@ -44,7 +46,11 @@ function Favourite(props) {
 }
 
 function SpellMetaInfo(props) {
-  return <p className="meta-info-field"> {props.spellClass} </p>;
+  let link = data.link + data.SpellClasses[props.spellClass].link;
+  let tooltip = props.spellClass + " im Regelwiki";
+  return (
+    <LinkWithTooltip tooltip={tooltip} href={link}>{props.spellClass}</LinkWithTooltip>
+  );
 }
 
 export default class Spell extends React.Component {
@@ -79,7 +85,9 @@ export default class Spell extends React.Component {
           <SpellName name={this.props.name} link={this.props.link} />
           <Favourite fav={this.state.fav} onClick={this.handleFavClick} />
         </div>
-        <SpellMetaInfo spellClass={this.props.spellClass} />
+        <div>
+          <SpellMetaInfo spellClass={this.props.spellClass} />
+        </div>
         <SpellProperties properties={this.props.properties} />
       </Col>
     );

@@ -3,8 +3,7 @@ import { FormGroup, ControlLabel } from "react-bootstrap";
 import Select from "react-select";
 
 
-const DEFAULT_MERKMAL = "Merkmal auswählen...";
-const MERKMALE = [DEFAULT_MERKMAL, "Elementar", "Antimagie", "Heilung", "Illusion", "Sphären", "Objekt", "Einfluss", "Telekinese", "Dämonisch", "Hellsicht", "Verwandlung", "Zeit"];
+const MERKMALE = ["Elementar", "Antimagie", "Heilung", "Illusion", "Sphären", "Objekt", "Einfluss", "Telekinese", "Dämonisch", "Hellsicht", "Verwandlung", "Zeit"];
 
 export default class FilterSpellPropertiesWidget extends React.Component {
 
@@ -12,19 +11,24 @@ export default class FilterSpellPropertiesWidget extends React.Component {
     super(props);
 
     this.state = {
-      list: DEFAULT_MERKMAL
+      list: []
     };
 
     this.filter = this.filter.bind(this);
   }
 
   filter(val) {
-    var filter = {"Merkmal": ""};
-    if(val.value != DEFAULT_MERKMAL)
-      filter = {"Merkmal": val.value};
+    var filter = [];
 
-    this.state.list = val.value;
-    this.props.onUserInput(filter);
+    if(val.constructor === Array)
+      filter = val.map(function (option) {
+        return option.value;
+      });
+    else if(val.value)
+      filter = val.value;
+
+    this.state.list = filter;
+    this.props.onUserInput({"Merkmal": filter});
   }
 
   getOptions() {
@@ -36,8 +40,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
        <FormGroup controlId="filter-merkmale-select">
        <ControlLabel>Merkmal</ControlLabel>
         <Select
-          multi={false}
-          clearable={false}
+          multi={true}
           value={this.state.list}
           onChange={this.filter}
           options={this.getOptions()} />

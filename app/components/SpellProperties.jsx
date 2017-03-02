@@ -2,13 +2,16 @@ import React from "react";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
 
 function SpellProperty(props) {
+
+  let text = props.text ? props.text.split("\n").map((item, key) => {
+    return <span key={key}>{item}<br/></span>;
+  }) : "";
+
   return (
     <ListGroupItem
       key={props.id}
       header={props.name}>
-      {props.text.split("\n").map((item, key) => {
-        return <span key={key}>{item}<br/></span>;
-      })}
+      {text}
     </ListGroupItem>
   );
 }

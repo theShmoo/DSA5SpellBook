@@ -2,9 +2,8 @@ import React from "react";
 import { FormGroup, ControlLabel } from "react-bootstrap";
 import Select from "react-select";
 
-const DEFAULT_DISSEMINATION = "Allgemein";
 const DISSEMINATION = [
-  DEFAULT_DISSEMINATION,
+  "Allgemein",
   "Druiden",
   "Elfen",
   "Gildenmagier",
@@ -19,19 +18,24 @@ export default class FilterSpellPropertiesWidget extends React.Component {
     super(props);
 
     this.state = {
-      list: DEFAULT_DISSEMINATION
+      list: []
     };
 
     this.filter = this.filter.bind(this);
   }
 
   filter(val) {
-    var filter = {"Verbreitung": DEFAULT_DISSEMINATION};
-    if(val.value != DEFAULT_DISSEMINATION)
-      filter = {"Verbreitung": val.value};
+    var filter = [];
 
-    this.state.list = val.value;
-    this.props.onUserInput(filter);
+    if(val.constructor === Array)
+      filter = val.map(function (option) {
+        return option.value;
+      });
+    else if(val.value)
+      filter = val.value;
+
+    this.state.list = filter;
+    this.props.onUserInput({"Verbreitung": filter});
   }
 
   getOptions() {
@@ -43,8 +47,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
       <FormGroup controlId="filter-dissemination-select">
         <ControlLabel>Verbreitung</ControlLabel>
         <Select
-          multi={false}
-          clearable={false}
+          multi={true}
           value={this.state.list}
           onChange={this.filter}
           options={this.getOptions()} />

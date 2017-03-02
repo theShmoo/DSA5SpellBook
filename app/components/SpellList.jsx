@@ -25,24 +25,11 @@ export default class SpellList extends React.Component {
   }
 
   render() {
-    var searchedSpells = this.props.spells.filter(
-        (spell) => { return this.props.filter.filterSpell(spell); }
+    let searchedSpells = this.props.spells.filter(
+        (spell) => { return !this.props.filter.filterSpell(spell); }
       );
 
-    var groupedSpells = [];
-    /*
-    var group = [];
-    searchedSpells.map(this.createSpell).forEach(function(spell, i) {
-      if(i % 3 == 0 && i != 0) {
-        groupedSpells.push(<Row key={i/3}> {group} </Row>);
-        group = [];
-      }
-      group.push(spell);
-    });
-    groupedSpells.push(<Row key="last"> {group} </Row>);
-    */
-
-    groupedSpells = searchedSpells.map((s) => {return this.createSpell(s);});
+    let groupedSpells = searchedSpells.map((s) => {return this.createSpell(s);});
 
     return (
       <Grid fluid={true}>

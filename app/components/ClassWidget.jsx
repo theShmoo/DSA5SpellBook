@@ -2,25 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { FormGroup, ControlLabel } from "react-bootstrap";
 import Select from "react-select";
-
-
-
-const DEFAULT_CLASS= "Zauberspruch";
-
-const SPELLCLASSES = [
-  DEFAULT_CLASS,
-  "Fluch",
-  "Stabzauber",
-  "Ritual",
-  "Zaubertrick",
-  "Elfenlied",
-  "Ahnenzeichen",
-  "Dolchritual",
-  "Vertrautentrick",
-  "Verzerrtes Elfenlied",
-  "Bann und Schutzkreis",
-  "Herrschaftsritual"];
-
+import data from "./spellclassinfo";
 
 export default class ClassWidget extends React.Component {
 
@@ -28,7 +10,7 @@ export default class ClassWidget extends React.Component {
     super(props);
 
     this.state = {
-      list: DEFAULT_CLASS
+      list: null
     };
 
     this.filter = this.filter.bind(this);
@@ -41,7 +23,7 @@ export default class ClassWidget extends React.Component {
       filter = val.map(function (option) {
         return option.value;
       });
-    else
+    else if(val.value)
       filter = val.value;
 
     this.state.list = filter;
@@ -49,7 +31,8 @@ export default class ClassWidget extends React.Component {
   }
 
   getOptions() {
-    return SPELLCLASSES.map((m) => {return {value: m, label: m};});
+    var classes = Object.keys(data.SpellClasses);
+    return classes.map((m) => {return {value: m, label: m};});
   }
 
   render() {
