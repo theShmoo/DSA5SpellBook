@@ -10,6 +10,8 @@ export default class FilterState {
     this._name = "";
     this._properties = {};
     this._spellClasses = [];
+    this._favorite = false;
+    this._favoriteSpells = [];
   }
 
   get name() {
@@ -36,18 +38,38 @@ export default class FilterState {
     this._spellClasses = newSpellClasses;
   }
 
-  filterForName(spell) {
-    return !fuzzyStringCompare(spell.name,this.name);
+  get favorite() {
+    return this._favorite;
   }
 
-  filterForProperties(spell) {
+  set favorite(bFilter) {
+    this._favorite = bFilter;
+  }
+
+  get favoriteSpells() {
+    return this._favoriteSpells;
+  }
+
+  set favoriteSpells(newFavoriteSpells) {
+    this._favoriteSpells = newFavoriteSpells;
+  }
+
+  /*
+   * Here start the filter methods
+   */
+
+  filterForName(spellname) {
+    return !fuzzyStringCompare(spellname,this.name);
+  }
+
+  filterForProperties(spellproperties) {
     var filtered = false;
     // iterate over all properties of the filter
     for (var k in this.properties) {
       // if a property is found (e.g. Merkmal)
-      if(k in spell.properties && this.properties[k].length) {
+      if(k in spellproperties && this.properties[k].length) {
         // check for the spell property if it is inside this list
-        var spell_p = spell.properties[k];
+        var spell_p = spellproperties[k];
         var isInList = false;
         for( var p of this.properties[k]) {
           isInList = fuzzyStringCompare(spell_p, p);
@@ -62,19 +84,28 @@ export default class FilterState {
     return filtered;
   }
 
-  filterForSpellClasses(spell) {
+  filterForSpellClasses(spellclass) {
     if(this.spellClasses.length)
-      return !(this.spellClasses.indexOf(spell.spellclass) > -1);
+      return !(this.spellClasses.indexOf(spellclass) > -1);
     else
       return false;
   }
 
+  filterForFavorite(spellname) {
+    if(this.favorite && this.favoriteSpells.indexOf(spellname) === -1) {
+      return true;
+    }
+    return false;
+  }
+
   filterSpell (spell) {
-    if(this.filterForName(spell))
+    if(this.filterForName(spell.props.name))
       return true;
-    if(this.filterForProperties(spell))
+    if(this.filterForProperties(spell.props.properties))
       return true;
-    if(this.filterForSpellClasses(spell))
+    if(this.filterForSpellClasses(spell.props.spellclass))
+      return true;
+    if(this.filterForFavorite(spell.props.name))
       return true;
     return false;
   }

@@ -9,10 +9,6 @@ export default class ClassWidget extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      list: null
-    };
-
     this.filter = this.filter.bind(this);
   }
 
@@ -26,7 +22,6 @@ export default class ClassWidget extends React.Component {
     else if(val.value)
       filter = val.value;
 
-    this.state.list = filter;
     this.props.onUserInput(filter);
   }
 
@@ -41,7 +36,7 @@ export default class ClassWidget extends React.Component {
         <ControlLabel>Zauberklassen</ControlLabel>
         <Select
           multi={true}
-          value={this.state.list}
+          value={this.props.classes}
           onChange={this.filter}
           options={this.getOptions()} />
       </FormGroup>

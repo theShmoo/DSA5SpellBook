@@ -1,19 +1,10 @@
 import React from "react";
 import SpellProperties from "components/SpellProperties";
-import { Col, Tooltip, OverlayTrigger, Glyphicon, Button } from "react-bootstrap";
+import SpellExtensions from "components/SpellExtensions";
+import LinkWithTooltip from "components/LinkWithTooltip";
+import FavoriteStar from "components/FavoriteStar";
+import { Col, Button, PanelGroup, Panel } from "react-bootstrap";
 import data from "./spellclassinfo";
-
-function LinkWithTooltip(props) {
-  let tooltip = <Tooltip id="ltr">{props.tooltip}</Tooltip>;
-
-  return (
-    <OverlayTrigger
-      overlay={tooltip} placement="top"
-      delayShow={0} delayHide={150}>
-      <a href={props.href} target="_blank">{props.children}</a>
-    </OverlayTrigger>
-  );
-}
 
 function SpellName(props) {
   let tooltip = props.name + " im Regelwiki";
@@ -22,34 +13,11 @@ function SpellName(props) {
   );
 }
 
-function Favourite(props) {
-
-  var glyph = props.fav ? "star" : "star-empty";
-
-  var tt_text = props.fav ?
-    "Klicke auf den Stern um diesen Zauberspruch von deinen Favourites zu entfernen" :
-    "Klicke auf den Stern um diesen Zauberspruch zu deinen Favourites hinzuzufügen";
-
-  const tt_star = (
-    <Tooltip id="fav">{tt_text}</Tooltip>
-  );
-
-  return(
-    <div className="favourite">
-      <OverlayTrigger
-        overlay={tt_star} placement="top"
-        delayShow={0} delayHide={150}>
-        <Glyphicon glyph={glyph} onClick={props.onClick}/>
-      </OverlayTrigger>
-    </div>
-  );
-}
-
 function SpellMetaInfo(props) {
-  let link = data.link + data.SpellClasses[props.spellClass].link;
-  let tooltip = props.spellClass + " im Regelwiki";
+  let link = data.link + data.SpellClasses[props.spellclass].link;
+  let tooltip = props.spellclass + " im Regelwiki";
   return (
-    <LinkWithTooltip tooltip={tooltip} href={link}>{props.spellClass}</LinkWithTooltip>
+    <LinkWithTooltip tooltip={tooltip} href={link}>{props.spellclass}</LinkWithTooltip>
   );
 }
 
@@ -58,37 +26,29 @@ export default class Spell extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      fav: false
-    };
-
     this.handleFavClick = this.handleFavClick.bind(this);
   }
 
   handleFavClick() {
-    this.setState(prevState => ({fav: !prevState.fav}));
-  }
-
-  getProperties(properties) {
-    return Object.keys(properties).map(function (key) {
-      var value = properties[key];
-      return (
-        <li><strong>{key}</strong> {value}</li>
-      );
-    });
+    this.props.onUserInput(this.props.name);
   }
 
   render() {
+
+    let fav = (this.props.favorites.indexOf(this.props.name) >= 0);
     return (
-      <Col lg={4} md={6} sm={12}>
+      <Col lg={4} md={6} sm={12} key={this.props.name}>
         <div className="clearboth">
           <SpellName name={this.props.name} link={this.props.link} />
-          <Favourite fav={this.state.fav} onClick={this.handleFavClick} />
+          <FavoriteStar fav={fav} onClick={this.handleFavClick} />
         </div>
         <div>
-          <SpellMetaInfo spellClass={this.props.spellClass} />
+          <SpellMetaInfo spellclass={this.props.spellclass} />
         </div>
+
         <SpellProperties properties={this.props.properties} />
+
+          <SpellExtensions extensions={this.props.extensions} />
       </Col>
     );
   }

@@ -17,10 +17,6 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      list: []
-    };
-
     this.filter = this.filter.bind(this);
   }
 
@@ -34,7 +30,6 @@ export default class FilterSpellPropertiesWidget extends React.Component {
     else if(val.value)
       filter = val.value;
 
-    this.state.list = filter;
     this.props.onUserInput({"Verbreitung": filter});
   }
 
@@ -48,7 +43,7 @@ export default class FilterSpellPropertiesWidget extends React.Component {
         <ControlLabel>Verbreitung</ControlLabel>
         <Select
           multi={true}
-          value={this.state.list}
+          value={this.props.dissemination}
           onChange={this.filter}
           options={this.getOptions()} />
       </FormGroup>

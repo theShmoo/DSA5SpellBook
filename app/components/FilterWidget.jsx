@@ -1,56 +1,49 @@
 import React from "react";
+import { Form, FormGroup, Grid, Col, Row } from "react-bootstrap";
+
 import SearchWidget from "components/SearchWidget";
-import FilterPropertiesWidget from "components/FilterPropertiesWidget";
+import FilterFavoriteWidget from "components/FilterFavoriteWidget";
+import FilterByMerkmalWidget from "components/FilterByMerkmalWidget";
+import FilterByDisseminationWidget from "components/FilterByDisseminationWidget";
 import ClassWidget from "components/ClassWidget";
-import FilterState from "components/FilterState";
-import { Form, FormGroup, Grid, Col } from "react-bootstrap";
 
 export default class FilterWidget extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      filter : new FilterState()
-    };
-
-    this.handleSearchInput = this.handleSearchInput.bind(this);
-    this.handlePropertiesInput = this.handlePropertiesInput.bind(this);
-    this.handleClassInput = this.handleClassInput.bind(this);
-  }
-
-  handleSearchInput(searchTerm) {
-    var newFiler = this.state.filter;
-    newFiler.name = searchTerm;
-    this.setState({filter: newFiler});
-    this.props.onUserInput(newFiler);
-  }
-
-  handlePropertiesInput(filter) {
-    var newFiler = this.state.filter;
-    newFiler.properties = filter;
-    this.setState({filter: newFiler});
-    this.props.onUserInput(newFiler);
-  }
-
-  handleClassInput(usedClasses) {
-    var newFiler = this.state.filter;
-    newFiler.spellClasses = usedClasses;
-    this.setState({filter: newFiler});
-    this.props.onUserInput(newFiler);
   }
 
   render() {
+    let p = this.props.filter.properties;
+    let m = "Merkmal" in p ? p["Merkmal"] : [];
+    let d = "Verbreitung" in p ? p["Verbreitung"] : [];
+    let c = this.props.filter.spellClasses;
+    let f = this.props.filter.favorite;
+
     return (
       <Form>
         <Grid>
-          <Col md={6} sm={12}>
-            <SearchWidget filterName={this.props.filter[name]} onUserInput={this.handleSearchInput}/>
+          <Col lg={3} md={6} sm={12}>
+            <SearchWidget onUserInput={this.props.handleSearchInput}/>
           </Col>
-          <Col md={6} sm={12}>
-            <ClassWidget onUserInput={this.handleClassInput} />
+          <Col lg={3} md={6} sm={12}>
+            <ClassWidget classes={c} onUserInput={this.props.handleClassInput} />
           </Col>
-          <FilterPropertiesWidget spells={this.props.spells} onUserInput={this.handlePropertiesInput}/>
+          <Col lg={3} md={6} sm={12}>
+            <FilterByMerkmalWidget
+              merkmale={m}
+              onUserInput={this.props.handlePropertiesInput}
+            />
+          </Col>
+          <Col lg={3} md={6} sm={12}>
+            <FilterByDisseminationWidget
+              disseminations={d}
+              onUserInput={this.props.handlePropertiesInput}
+            />
+          </Col>
+          <Col>
+            <FilterFavoriteWidget favorite={f} onUserInput={this.props.handleFavoriteInput}/>
+          </Col>
         </Grid>
       </Form>
     );

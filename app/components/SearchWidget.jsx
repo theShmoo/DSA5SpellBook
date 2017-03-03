@@ -21,7 +21,6 @@ export default class SearchWidget extends React.Component {
         <FormControl
           inputRef={(input) => this.filterTextInput = input}
           placeholder="Namenssuche..."
-          value={this.props.filterName}
           type="search"
           onChange={this.search} />
       </FormGroup>

@@ -1,7 +1,7 @@
 import React from "react";
 import {ListGroup, ListGroupItem, Panel} from "react-bootstrap";
 
-function SpellProperty(props) {
+function SpellExtension(props) {
 
   let text = props.text ? props.text.split("\n").map((item, key) => {
     return <span key={key}>{item}<br/></span>;
@@ -15,26 +15,29 @@ function SpellProperty(props) {
   );
 }
 
-export default class SpellProperties extends React.Component {
+export default class SpellExtensions extends React.Component {
 
   constructor(props) {
     super(props);
   }
 
-  createProperties(p) {
+  createExtensions(p) {
     return Object.keys(p).map( function (name, id) {
-      return (<SpellProperty key={id} name={name} text={p[name]} id={id} />);
+      return (<SpellExtension key={id} name={p[name][0]} text={p[name][1]} />);
     });
   }
 
   render() {
-    let properties = this.createProperties(this.props.properties);
-    return (
-      <Panel collapsible defaultExpanded header="Werte">
+    let extensions = this.createExtensions(this.props.extensions);
+    if (extensions.length > 0) {
+      return (
+        <Panel collapsible defaultExpanded={false} header="Zaubererweiterungen">
         <ListGroup fill>
-          {properties}
+          {extensions}
         </ListGroup>
-      </Panel>
-    );
+        </Panel>
+      );
+    }
+    else return (<div/>);
   }
 }
