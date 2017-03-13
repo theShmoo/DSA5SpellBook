@@ -7,7 +7,9 @@ A web application to
  * search
  * order
 
-the DSA 5 spells
+the DSA 5 spells.
+
+DSA 5 is the fifth edition of the role playing game "The Dark Eye" (TDE) or "Das Schwarze Auge" (DSA)
 
 ## Try it!
 
@@ -22,9 +24,18 @@ If you want to support me, I launched the project on the [Scriptorium Aventuris]
 The data is from the [DSA5 Regel Wiki](http://www.ulisses-regelwiki.de/) the [scrapy](https://scrapy.org/) Spider from my project [DSA5RegelWikiParser](https://github.com/theShmoo/DSA5RegelWikiParser) is crawling the [DSA5 Regel Wiki](http://www.ulisses-regelwiki.de/) and looks for all links found in the subdirectories of [Zauber](http://www.ulisses-regelwiki.de/index.php/zauber.html)
 So:
 
- * [Rituale](http://www.ulisses-regelwiki.de/index.php/za_rituale.html)
- * [Zaubersprüche](http://www.ulisses-regelwiki.de/index.php/za_zaubersprueche.html)
- * [Zaubertricks](http://www.ulisses-regelwiki.de/index.php/Zauber_Zaubertricks.html)
+* [Fluch](http://www.ulisses-regelwiki.de/index.php/index.php/HSF_Hexenflueche.html)
+* [Stabzauber](http://www.ulisses-regelwiki.de/index.php/index.php/SSF_Stabzauber.html)
+* [Ritual](http://www.ulisses-regelwiki.de/index.php/index.php/za_rituale.html)
+* [Zauberspruch](http://www.ulisses-regelwiki.de/index.php/index.php/za_zaubersprueche.html)
+* [Zaubertrick](http://www.ulisses-regelwiki.de/index.php/index.php/Zauber_Zaubertricks.html)
+* [Elfenlied](http://www.ulisses-regelwiki.de/index.php/index.php/ESF_Elfenlieder.html)
+* [Ahnenzeichen](http://www.ulisses-regelwiki.de/index.php/index.php/Ahnenzeichen.html)
+* [Dolchritual](http://www.ulisses-regelwiki.de/index.php/index.php/drituale.html)
+* [Vertrautentrick](http://www.ulisses-regelwiki.de/index.php/index.php/VSF_Vertrautentricks.html)
+* [Verzerrtes Elfenlied](http://www.ulisses-regelwiki.de/index.php/index.php/verelfenl.html)
+* [Bann und Schutzkreis](http://www.ulisses-regelwiki.de/index.php/index.php/bannundschutz.html)
+* [Herrschaftsritual](http://www.ulisses-regelwiki.de/index.php/index.php/herituel.html)
 
 and parses it to a [JSON-file](./app/components/data.js).
 
