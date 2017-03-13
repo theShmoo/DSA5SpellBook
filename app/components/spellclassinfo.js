@@ -51,5 +51,13 @@ export default
       "extension": 0
     }
   },
+  "Merkmal":
+  [
+    "Elementar", "Antimagie", "Heilung", "Illusion", "Sphären", "Objekt", "Einfluss", "Telekinese", "Dämonisch", "Hellsicht", "Verwandlung", "Zeit", "Keines"
+  ],
+  "Verbreitung":
+  [
+    "Allgemein", "Druiden", "Elfen", "Gildenmagier", "Hexen", "Kristallomanten", "Scharlatane", "Nostria"
+  ],
   "link": "http://www.ulisses-regelwiki.de/index.php/index.php/"
-}
+};

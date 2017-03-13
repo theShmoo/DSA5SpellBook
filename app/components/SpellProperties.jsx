@@ -3,14 +3,14 @@ import {ListGroup, ListGroupItem, Panel} from "react-bootstrap";
 
 function SpellProperty(props) {
 
-  let text = props.text ? props.text.split("\n").map((item, key) => {
-    return <span key={key}>{item}<br/></span>;
-  }) : "";
+  // let text = props.text ? props.text.split("\n").map((item, key) => {
+  //   return <span key={key}>{item}<br/></span>;
+  // }) : "";
 
   return (
     <ListGroupItem
       header={props.name}>
-      {text}
+      <span dangerouslySetInnerHTML={{__html: props.text}} />
     </ListGroupItem>
   );
 }
@@ -23,7 +23,7 @@ export default class SpellProperties extends React.Component {
 
   createProperties(p) {
     return Object.keys(p).map( function (name, id) {
-      return (<SpellProperty key={id} name={name} text={p[name]} id={id} />);
+      return (<SpellProperty key={id} name={name} text={p[name]}/>);
     });
   }
 

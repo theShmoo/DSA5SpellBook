@@ -13,7 +13,7 @@ export default class SpellList extends React.Component {
   }
 
   render() {
-    var searchedSpells = this.props.spells.filter(
+    let searchedSpells = this.props.spells.filter(
         (spell) => { return !this.props.filter.filterSpell(spell); }
       );
 
