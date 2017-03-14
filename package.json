@@ -2,10 +2,10 @@
   "name": "DSA5WebSpellBook",
   "description": "A DSA 5 spell book for easy spell casting",
   "author": "David Pfahler",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/theShmoo/DSA5SpellBook.git"
   },
   "scripts": {
     "start": "brunch watch --server",
