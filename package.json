@@ -14,8 +14,7 @@
   "dependencies": {
     "react": "~15.3.0",
     "react-bootstrap": "^0.30.7",
-    "react-dom": "~15.3.0",
-    "react-select": "^1.0.0-rc.3"
+    "react-dom": "~15.3.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",

@@ -23,11 +23,13 @@ export default class SpellBook extends React.Component {
   handleFavoriteChange(name) {
     this.setState(function(prevState) {
       var newFilter = prevState.filter;
-      var i = newFilter.favoriteSpells.indexOf(name);
+      var newFavoriteSpells = newFilter.favoriteSpells;
+      var i = newFavoriteSpells.indexOf(name);
       if (i === -1)
-        newFilter.favoriteSpells.push(name);
+        newFavoriteSpells.push(name);
       else
-        newFilter.favoriteSpells.splice(i, 1);
+        newFavoriteSpells.splice(i, 1);
+      newFilter.favoriteSpells = newFavoriteSpells;
       return {
         filter: newFilter
       };
@@ -57,9 +59,11 @@ export default class SpellBook extends React.Component {
   handlePropertiesInput(propFilter) {
     this.setState(function(prevState) {
       var newFilter = prevState.filter;
+      var newProperties = newFilter.properties;
       for (var k in propFilter) {
-        newFilter.properties[k] = propFilter[k];
+        newProperties[k] = propFilter[k];
       }
+      newFilter.properties = newProperties;
       return {
         filter: newFilter
       };
@@ -76,10 +80,10 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  createSpell(spell) {
+  createSpell(spell, id) {
     return (
       <Spell
-        key={spell.name}
+        key={id.toString()}
         name={spell.name}
         link={spell.link}
         spellclass={spell.spellclass}
@@ -93,7 +97,7 @@ export default class SpellBook extends React.Component {
 
   render() {
 
-    let spells = this.props.spells.map((s) => {return this.createSpell(s);});
+    let spells = this.props.spells.map((s, id) => {return this.createSpell(s, id);});
 
     return (
       <Grid>

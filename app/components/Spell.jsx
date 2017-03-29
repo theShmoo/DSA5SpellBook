@@ -1,9 +1,9 @@
 import React from "react";
+import { Col, Button, PanelGroup, Panel } from "react-bootstrap";
 import SpellProperties from "components/SpellProperties";
 import SpellExtensions from "components/SpellExtensions";
 import LinkWithTooltip from "components/LinkWithTooltip";
 import FavoriteStar from "components/FavoriteStar";
-import { Col, Button, PanelGroup, Panel } from "react-bootstrap";
 import data from "./spellclassinfo";
 
 function SpellName(props) {
@@ -37,7 +37,7 @@ export default class Spell extends React.Component {
 
     let fav = (this.props.favorites.indexOf(this.props.name) >= 0);
     return (
-      <Col lg={4} md={6} sm={12} key={this.props.name}>
+      <Col lg={4} md={6} sm={12}>
         <div className="clearboth">
           <SpellName name={this.props.name} link={this.props.link} />
           <FavoriteStar fav={fav} onClick={this.handleFavClick} />
@@ -47,8 +47,7 @@ export default class Spell extends React.Component {
         </div>
 
         <SpellProperties properties={this.props.properties} />
-
-          <SpellExtensions extensions={this.props.extensions} />
+        <SpellExtensions extensions={this.props.extensions} />
       </Col>
     );
   }

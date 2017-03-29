@@ -5,6 +5,18 @@ function fuzzyStringCompare(str1, str2) {
   return str1.toLowerCase().includes(str2.toLowerCase());
 }
 
+// checks if the local storage exists
+function supportsLocalStorage() {
+  var mod = "test";
+  try {
+    localStorage.setItem(mod, mod);
+    localStorage.removeItem(mod);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 export default class FilterState {
   constructor () {
     this._name = "";
@@ -12,6 +24,9 @@ export default class FilterState {
     this._spellClasses = [];
     this._favorite = false;
     this._favoriteSpells = [];
+
+    this.hasLocalStorage = supportsLocalStorage();
+    this.loadFromLocalStorage();
   }
 
   get name() {
@@ -20,6 +35,7 @@ export default class FilterState {
 
   set name(newName) {
     this._name = newName;
+    this.saveToLocalStorage();
   }
 
   get properties() {
@@ -28,6 +44,7 @@ export default class FilterState {
 
   set properties(newProperties) {
     this._properties = newProperties;
+    this.saveToLocalStorage();
   }
 
   get spellClasses() {
@@ -36,6 +53,7 @@ export default class FilterState {
 
   set spellClasses(newSpellClasses) {
     this._spellClasses = newSpellClasses;
+    this.saveToLocalStorage();
   }
 
   get favorite() {
@@ -44,6 +62,7 @@ export default class FilterState {
 
   set favorite(bFilter) {
     this._favorite = bFilter;
+    this.saveToLocalStorage();
   }
 
   get favoriteSpells() {
@@ -52,6 +71,32 @@ export default class FilterState {
 
   set favoriteSpells(newFavoriteSpells) {
     this._favoriteSpells = newFavoriteSpells;
+    this.saveToLocalStorage();
+  }
+
+  loadFromLocalStorage () {
+    // load local state
+    if(this.hasLocalStorage) {
+      console.log("load local storage");
+      console.log(localStorage.getItem("filter"));
+      var storedFilter = JSON.parse(localStorage.getItem("filter"));
+      if(storedFilter)
+      {
+        this._name = storedFilter._name;
+        this._properties = storedFilter._properties;
+        this._spellClasses = storedFilter._spellClasses;
+        this._favoriteSpells = storedFilter._favoriteSpells;
+        this._favorite = storedFilter._favorite;
+      }
+    }
+  }
+
+  saveToLocalStorage() {
+    if(this.hasLocalStorage) {
+      console.log("Save to local storage");
+      localStorage.setItem("filter", JSON.stringify(this));
+      console.log(JSON.stringify(this));
+    }
   }
 
   /*

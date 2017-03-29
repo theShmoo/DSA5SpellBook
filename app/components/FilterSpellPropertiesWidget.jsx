@@ -1,9 +1,8 @@
 import React from "react";
 import { FormGroup, ControlLabel } from "react-bootstrap";
 import Select from "react-select";
-
-
-const MERKMALE = ["Elementar", "Antimagie", "Heilung", "Illusion", "Sphären", "Objekt", "Einfluss", "Telekinese", "Dämonisch", "Hellsicht", "Verwandlung", "Zeit"];
+import data from "./spellclassinfo";
+import InfoTooltip from "components/InfoTooltip";
 
 export default class FilterSpellPropertiesWidget extends React.Component {
 
@@ -14,29 +13,30 @@ export default class FilterSpellPropertiesWidget extends React.Component {
   }
 
   filter(val) {
-    var filter = [];
+    var filter = {};
 
     if(val.constructor === Array)
-      filter = val.map(function (option) {
+      filter[this.props.property] = val.map(function (option) {
         return option.value;
       });
     else if(val.value)
-      filter = val.value;
+      filter[this.props.property] = val.value;
 
-    this.props.onUserInput({"Merkmal": filter});
+    this.props.onUserInput(filter);
   }
 
   getOptions() {
-    return MERKMALE.map((m) => {return {value: m, label: m};});
+    return data[this.props.property].map((m) => {return {value: m, label: m};});
   }
 
   render() {
+    let id = "filter-" + this.props.property;
     return (
-       <FormGroup controlId="filter-merkmale-select">
-       <ControlLabel>Merkmal</ControlLabel>
+      <FormGroup controlId={id}>
+        <ControlLabel>{this.props.property}</ControlLabel>
         <Select
           multi={true}
-          value={this.props.merkmale}
+          value={this.props.selected}
           onChange={this.filter}
           options={this.getOptions()} />
       </FormGroup>

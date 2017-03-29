@@ -3,8 +3,7 @@ import { Form, FormGroup, Grid, Col, Row } from "react-bootstrap";
 
 import SearchWidget from "components/SearchWidget";
 import FilterFavoriteWidget from "components/FilterFavoriteWidget";
-import FilterByMerkmalWidget from "components/FilterByMerkmalWidget";
-import FilterByDisseminationWidget from "components/FilterByDisseminationWidget";
+import FilterPropertiesWidget from "components/FilterSpellPropertiesWidget";
 import ClassWidget from "components/ClassWidget";
 
 export default class FilterWidget extends React.Component {
@@ -19,25 +18,28 @@ export default class FilterWidget extends React.Component {
     let d = "Verbreitung" in p ? p["Verbreitung"] : [];
     let c = this.props.filter.spellClasses;
     let f = this.props.filter.favorite;
+    let n = this.props.filter.name;
 
     return (
       <Form>
         <Grid>
           <Col lg={3} md={6} sm={12}>
-            <SearchWidget onUserInput={this.props.handleSearchInput}/>
+            <SearchWidget name={n} onUserInput={this.props.handleSearchInput}/>
           </Col>
           <Col lg={3} md={6} sm={12}>
             <ClassWidget classes={c} onUserInput={this.props.handleClassInput} />
           </Col>
           <Col lg={3} md={6} sm={12}>
-            <FilterByMerkmalWidget
-              merkmale={m}
+            <FilterPropertiesWidget
+              selected={m}
+              property="Merkmal"
               onUserInput={this.props.handlePropertiesInput}
             />
           </Col>
           <Col lg={3} md={6} sm={12}>
-            <FilterByDisseminationWidget
-              disseminations={d}
+            <FilterPropertiesWidget
+              selected={d}
+              property="Verbreitung"
               onUserInput={this.props.handlePropertiesInput}
             />
           </Col>
