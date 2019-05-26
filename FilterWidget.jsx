@@ -21,20 +21,20 @@ export default class FilterWidget extends React.Component {
 
     return (
       <DSAGrid>
-        <DSAGridItem lg={3} md={6} sm={12}>
+        <DSAGridItem lg={3} md={6} sm={12} xs={12}>
           <SearchWidget name={name} spells={spells} onUserInput={onSearchInput}/>
         </DSAGridItem>
-        <DSAGridItem lg={3} md={6} sm={12}>
+        <DSAGridItem lg={3} md={6} sm={12} xs={12}>
           <SpellClassWidget classes={spellClasses} onUserInput={onClassInput} />
         </DSAGridItem>
-        <DSAGridItem lg={3} md={6} sm={12}>
+        <DSAGridItem lg={3} md={6} sm={12} xs={12}>
           <FilterPropertiesWidget
             selected={m}
             property="Merkmal"
             onUserInput={onPropertiesInput}
           />
         </DSAGridItem>
-        <DSAGridItem lg={3} md={6} sm={12}>
+        <DSAGridItem lg={3} md={6} sm={12} xs={12}>
           <FilterPropertiesWidget
             selected={d}
             property="Verbreitung"

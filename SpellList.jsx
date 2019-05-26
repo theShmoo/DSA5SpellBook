@@ -13,7 +13,7 @@ function SpellListMetaInfo(num_spells) {
 function createSpell(spell, id, favoriteSpells, onFavoriteChange) {
   const {name, link, spellclass, properties, spellextensions} = spell;
   return (
-    <DSAGridItem sx={12} sm={6} md={4} lg={4} key={id}>
+    <DSAGridItem xs={12} sm={6} md={4} lg={4} key={id}>
       <Spell
         name={name}
         link={link}
