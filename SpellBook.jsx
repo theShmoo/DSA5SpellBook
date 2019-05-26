@@ -1,26 +1,19 @@
 import React from "react";
+
 import SpellList from "./SpellList";
-import Spell from "./Spell";
 import FilterWidget from "./FilterWidget";
 import FilterState from "./FilterState";
-import { Row, Grid } from "react-bootstrap";
+
+import { DSAGrid, DSAGridRow } from '../controls/DSAGrid';
+import DSAInfoBox from '../controls/DSAInfoBox';
 
 export default class SpellBook extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: new FilterState()
-    };
+  state = {
+    filter: new FilterState()
+  };
 
-    this.handleFavoriteChange = this.handleFavoriteChange.bind(this);
-    this.handleSearchInput = this.handleSearchInput.bind(this);
-    this.handlePropertiesInput = this.handlePropertiesInput.bind(this);
-    this.handleClassInput = this.handleClassInput.bind(this);
-    this.handleFavoriteInput = this.handleFavoriteInput.bind(this);
-  }
-
-  handleFavoriteChange(name) {
+  handleFavoriteChange = (name) => {
     this.setState(function(prevState) {
       var newFilter = prevState.filter;
       var newFavoriteSpells = newFilter.favoriteSpells;
@@ -36,9 +29,9 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  handleFavoriteInput() {
+  handleFavoriteInput = ()  => {
     this.setState(function(prevState) {
-      var newFilter = prevState.filter;
+      let newFilter = prevState.filter;
       newFilter.favorite = !prevState.filter.favorite;
       return {
         filter: newFilter
@@ -46,9 +39,9 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  handleSearchInput(searchTerm) {
+  handleSearchInput = (searchTerm) => {
     this.setState(function(prevState) {
-      var newFilter = prevState.filter;
+      let newFilter = prevState.filter;
       newFilter.name = searchTerm;
       return {
         filter: newFilter
@@ -56,11 +49,11 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  handlePropertiesInput(propFilter) {
+  handlePropertiesInput = (propFilter) => {
     this.setState(function(prevState) {
-      var newFilter = prevState.filter;
-      var newProperties = newFilter.properties;
-      for (var k in propFilter) {
+      let newFilter = prevState.filter;
+      let newProperties = newFilter.properties;
+      for (let k in propFilter) {
         newProperties[k] = propFilter[k];
       }
       newFilter.properties = newProperties;
@@ -70,9 +63,9 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  handleClassInput(usedClasses) {
+  handleClassInput = (usedClasses) => {
     this.setState(function(prevState) {
-      var newFilter = prevState.filter;
+      let newFilter = prevState.filter;
       newFilter.spellClasses = usedClasses;
       return {
         filter: newFilter
@@ -80,43 +73,33 @@ export default class SpellBook extends React.Component {
     });
   }
 
-  createSpell(spell, id) {
-    return (
-      <Spell
-        key={id.toString()}
-        name={spell.name}
-        link={spell.link}
-        spellclass={spell.spellclass}
-        properties={spell.properties}
-        extensions={spell.spellextensions}
-        onUserInput={this.handleFavoriteChange}
-        favorites={this.state.filter.favoriteSpells}
-      />
-    );
-  }
-
   render() {
-
-    let spells = this.props.spells.map((s, id) => {return this.createSpell(s, id);});
-
+    const spells = this.props.spells.filter(
+      (spell) => { return !this.state.filter.filterSpell(spell); }
+    );
     return (
-      <Grid>
-        <Row>
-          <FilterWidget
-            filter={this.state.filter}
-            handleSearchInput={this.handleSearchInput}
-            handleClassInput={this.handleClassInput}
-            handlePropertiesInput={this.handlePropertiesInput}
-            handleFavoriteInput={this.handleFavoriteInput}
-          />
-        </Row>
-        <Row>
+      <DSAGrid>
+        <DSAGridRow>
+          <DSAInfoBox
+            title="Zaubersprüche"
+            text="Suche und Finde Zaubersprüche aller Art">
+            <FilterWidget
+              filter={this.state.filter}
+              spells={spells}
+              onSearchInput={this.handleSearchInput}
+              onClassInput={this.handleClassInput}
+              onPropertiesInput={this.handlePropertiesInput}
+              onFavoriteInput={this.handleFavoriteInput}
+            />
+          </DSAInfoBox>
+        </DSAGridRow>
+        <DSAGridRow>
           <SpellList
             spells={spells}
-            filter={this.state.filter}
-          />
-        </Row>
-      </Grid>
+            favoriteSpells={this.state.filter.favoriteSpells}
+            onFavoriteChange={this.handleFavoriteChange}/>
+        </DSAGridRow>
+      </DSAGrid>
     );
   }
 }

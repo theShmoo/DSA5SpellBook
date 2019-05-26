@@ -1,30 +1,14 @@
 import React from "react";
-import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
 
-export default class SearchWidget extends React.Component {
+import DSASearchField from '../controls/DSASearchField';
 
-  constructor(props) {
-    super(props);
-    this.search = this.search.bind(this);
-  }
+export default function SearchWidget(props) {
 
-  search() {
-    this.props.onUserInput(
-      this.filterTextInput.value
-    );
-  }
+  const {name, onUserInput} = props;
 
-  render() {
-    return (
-      <FormGroup controlId="filter-name-search">
-        <ControlLabel>Suche</ControlLabel>
-        <FormControl
-          inputRef={(input) => this.filterTextInput = input}
-          placeholder="Namenssuche..."
-          type="search"
-          value={this.props.name}
-          onChange={this.search} />
-      </FormGroup>
-    );
-  }
+  return <DSASearchField
+    value={name}
+    label="Suche"
+    helperText="Suche nach einem Zauberspruch."
+    onChange={(v) => onUserInput(v, "names")} />
 }

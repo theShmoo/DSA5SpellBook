@@ -1,27 +1,48 @@
 import React from "react";
-import { Tooltip, OverlayTrigger, Glyphicon  } from "react-bootstrap";
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-export default class FavoriteStar extends React.Component {
+import DSATooltip from '../controls/DSATooltip';
 
-  render() {
-    const glyph = this.props.fav ? "star" : "star-empty";
+const styles = theme => ({
+  button: {
+    margin: 0.5*theme.spacing.unit,
+  },
+  icon: {
+    margin: 0.5*theme.spacing.unit,
+    fontSize: 20,
+  },
+});
 
-    const tt_text = this.props.fav ?
-      "Klicke auf den Stern um diesen Zauberspruch von deinen Favoriten zu entfernen" :
-      "Klicke auf den Stern um diesen Zauberspruch zu deinen Favoriten hinzuzufügen";
+function FavoriteStar(props) {
+  const {fav, onClick, classes} = props;
+  const glyph = fav ? <StarIcon className={classes.icon} />
+    : <StarBorderIcon className={classes.icon} />
 
-    const tt_star = (
-      <Tooltip id="fav">{tt_text}</Tooltip>
-    );
+  let tt_text = "Klicke auf den Stern um diesen Zauberspruch ";
+  if (fav)
+    tt_text += "von deinen Favoriten zu entfernen";
+  else
+    tt_text += "zu deinen Favoriten hinzuzufügen";
 
-    return(
-      <div className="favorite">
-        <OverlayTrigger
-          overlay={tt_star} placement="top"
-          delayShow={0} delayHide={100}>
-          <Glyphicon glyph={glyph} onClick={this.props.onClick}/>
-        </OverlayTrigger>
-      </div>
-    );
-  }
+  return(
+      <DSATooltip title={tt_text}>
+        <IconButton
+          onClick={onClick}
+          color="primary"
+          className={classes.button}
+          aria-label={tt_text}>
+        {glyph}
+        </IconButton>
+      </DSATooltip>
+  );
 }
+
+FavoriteStar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(FavoriteStar);

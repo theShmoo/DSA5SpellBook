@@ -1,49 +1,50 @@
 import React from "react";
-import { Form, Grid, Col } from "react-bootstrap";
 
 import SearchWidget from "./SearchWidget";
-import FilterFavoriteWidget from "./FilterFavoriteWidget";
 import FilterPropertiesWidget from "./FilterSpellPropertiesWidget";
-import ClassWidget from "./ClassWidget";
+import FilterFavoriteWidget from "./FilterFavoriteWidget";
+import SpellClassWidget from "./SpellClassWidget";
+
+import { DSAGrid, DSAGridItem} from '../controls/DSAGrid';
 
 export default class FilterWidget extends React.Component {
 
   render() {
-    let p = this.props.filter.properties;
-    let m = "Merkmal" in p ? p["Merkmal"] : [];
-    let d = "Verbreitung" in p ? p["Verbreitung"] : [];
-    let c = this.props.filter.spellClasses;
-    let f = this.props.filter.favorite;
-    let n = this.props.filter.name;
+    const {spells, filter,
+      onSearchInput,
+      onPropertiesInput,
+      onClassInput,
+      onFavoriteInput} = this.props;
+    const {properties, spellClasses, favorite, name} = filter;
+    const m = "Merkmal" in properties ? properties["Merkmal"] : [];
+    const d = "Verbreitung" in properties ? properties["Verbreitung"] : [];
 
     return (
-      <Form>
-        <Grid>
-          <Col lg={3} md={6} sm={12}>
-            <SearchWidget name={n} onUserInput={this.props.handleSearchInput}/>
-          </Col>
-          <Col lg={3} md={6} sm={12}>
-            <ClassWidget classes={c} onUserInput={this.props.handleClassInput} />
-          </Col>
-          <Col lg={3} md={6} sm={12}>
-            <FilterPropertiesWidget
-              selected={m}
-              property="Merkmal"
-              onUserInput={this.props.handlePropertiesInput}
-            />
-          </Col>
-          <Col lg={3} md={6} sm={12}>
-            <FilterPropertiesWidget
-              selected={d}
-              property="Verbreitung"
-              onUserInput={this.props.handlePropertiesInput}
-            />
-          </Col>
-          <Col>
-            <FilterFavoriteWidget favorite={f} onUserInput={this.props.handleFavoriteInput}/>
-          </Col>
-        </Grid>
-      </Form>
+      <DSAGrid>
+        <DSAGridItem lg={3} md={6} sm={12}>
+          <SearchWidget name={name} spells={spells} onUserInput={onSearchInput}/>
+        </DSAGridItem>
+        <DSAGridItem lg={3} md={6} sm={12}>
+          <SpellClassWidget classes={spellClasses} onUserInput={onClassInput} />
+        </DSAGridItem>
+        <DSAGridItem lg={3} md={6} sm={12}>
+          <FilterPropertiesWidget
+            selected={m}
+            property="Merkmal"
+            onUserInput={onPropertiesInput}
+          />
+        </DSAGridItem>
+        <DSAGridItem lg={3} md={6} sm={12}>
+          <FilterPropertiesWidget
+            selected={d}
+            property="Verbreitung"
+            onUserInput={onPropertiesInput}
+          />
+        </DSAGridItem>
+        <DSAGridItem>
+          <FilterFavoriteWidget favorite={favorite} onUserInput={onFavoriteInput}/>
+        </DSAGridItem>
+      </DSAGrid>
     );
   }
 }

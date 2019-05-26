@@ -1,26 +1,43 @@
 import React from "react";
-import { Grid } from "react-bootstrap";
+import Spell from './Spell';
+import { DSAGrid, DSAGridRow, DSAGridItem} from '../controls/DSAGrid';
+import DSAInfoBox from '../controls/DSAInfoBox';
 
-export default class SpellList extends React.Component {
+function SpellListMetaInfo(num_spells) {
+  const text = <span> Es wurden <strong>{num_spells + " Zauber"}</strong> gefunden </span>
+  return (
+    <DSAInfoBox text={text} />
+  );
+}
 
-  SpellListMetaInfo(num_spells) {
-    return (
-      <div className="spell-list-meta-info">
-        Es wurden <strong>{num_spells} Zauber</strong> gefunden
-      </div>
-    );
-  }
+function createSpell(spell, id, favoriteSpells, onFavoriteChange) {
+  const {name, link, spellclass, properties, spellextensions} = spell;
+  return (
+    <DSAGridItem sx={12} sm={6} md={4} lg={4} key={id}>
+      <Spell
+        name={name}
+        link={link}
+        spellclass={spellclass}
+        properties={properties}
+        extensions={spellextensions}
+        onUserInput={onFavoriteChange}
+        favorites={favoriteSpells}
+      />
+    </DSAGridItem>
+  );
+}
 
-  render() {
-    let searchedSpells = this.props.spells.filter(
-        (spell) => { return !this.props.filter.filterSpell(spell); }
-      );
-
-    return (
-      <Grid fluid={true}>
-        {this.SpellListMetaInfo(searchedSpells.length)}
-        {searchedSpells}
-      </Grid>
-    );
-  }
+export default function SpellList(props) {
+  const {onFavoriteChange, favoriteSpells} = props;
+  const spells = props.spells.map((s, id) => {
+    return createSpell(s, id, favoriteSpells, onFavoriteChange);
+  })
+  return (
+    <DSAGrid>
+      <DSAGridRow>
+        {SpellListMetaInfo(props.spells.length)}
+      </DSAGridRow>
+      {spells}
+    </DSAGrid>
+  );
 }

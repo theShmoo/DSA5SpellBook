@@ -1,54 +1,57 @@
 import React from "react";
-import { Col } from "react-bootstrap";
-import SpellProperties from "./SpellProperties";
-import SpellExtensions from "./SpellExtensions";
-import LinkWithTooltip from "./LinkWithTooltip";
-import FavoriteStar from "./FavoriteStar";
-import data from "./spellclassinfo";
+import LazyLoad from 'react-lazyload';
 
-function SpellName(props) {
-  let tooltip = props.name + " im Regelwiki";
-  return (
-    <LinkWithTooltip tooltip={tooltip} href={props.link}><h3>{props.name}</h3></LinkWithTooltip>
-  );
-}
+import DSALink from '../controls/DSALink';
+import DSAInfoBox from '../controls/DSAInfoBox';
+
+import FavoriteStar from './FavoriteStar';
+import SpellProperties from './SpellProperties';
+import SpellExtensions from "./SpellExtensions";
+
+import {DSASpellClasses} from "../data/DSASpellClasses";
 
 function SpellMetaInfo(props) {
-  let link = data.link + data.SpellClasses[props.spellclass].link;
-  let tooltip = props.spellclass + " im Regelwiki";
+  const {spellclass} = props;
+  const link = DSASpellClasses.link + DSASpellClasses.SpellClasses[spellclass].link;
+  let tooltip = spellclass + " im Regelwiki";
   return (
-    <LinkWithTooltip tooltip={tooltip} href={link}>{props.spellclass}</LinkWithTooltip>
+    <DSALink tooltip={tooltip} href={link}>{spellclass}</DSALink>
   );
 }
 
-export default class Spell extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.handleFavClick = this.handleFavClick.bind(this);
+function SpellTitle(props) {
+  const {favorites, name, link, onUserInput} = props;
+  const fav = (favorites.indexOf(name) >= 0);
+  const handleFavClick = () => {
+    onUserInput(name);
   }
 
-  handleFavClick() {
-    this.props.onUserInput(this.props.name);
-  }
+  return <span>
+      <DSALink
+        tooltip={name + " im Regelwiki"}
+        href={link}>
+        {name}
+      </DSALink>
+      <FavoriteStar fav={fav} onClick={handleFavClick} />
+    </span>;
+}
+
+class Spell extends React.Component {
 
   render() {
-
-    let fav = (this.props.favorites.indexOf(this.props.name) >= 0);
+    const title = <SpellTitle {...this.props}/>
     return (
-      <Col lg={4} md={6} sm={12}>
-        <div className="clearboth">
-          <SpellName name={this.props.name} link={this.props.link} />
-          <FavoriteStar fav={fav} onClick={this.handleFavClick} />
-        </div>
-        <div>
-          <SpellMetaInfo spellclass={this.props.spellclass} />
-        </div>
-
-        <SpellProperties properties={this.props.properties} />
-        <SpellExtensions extensions={this.props.extensions} />
-      </Col>
+      <LazyLoad height={200} once >
+        <DSAInfoBox
+          title={title}
+          text={<SpellMetaInfo spellclass={this.props.spellclass}/>}
+        >
+          <SpellProperties properties={this.props.properties} />
+          <SpellExtensions extensions={this.props.extensions} />
+        </DSAInfoBox>
+      </LazyLoad>
     );
   }
 }
+
+export default Spell

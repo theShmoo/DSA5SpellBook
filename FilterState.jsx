@@ -142,13 +142,13 @@ export default class FilterState {
   }
 
   filterSpell (spell) {
-    if(this.filterForName(spell.props.name))
+    if(this.filterForName(spell.name))
       return true;
-    if(this.filterForProperties(spell.props.properties))
+    if(this.filterForProperties(spell.properties))
       return true;
-    if(this.filterForSpellClasses(spell.props.spellclass))
+    if(this.filterForSpellClasses(spell.spellclass))
       return true;
-    if(this.filterForFavorite(spell.props.name))
+    if(this.filterForFavorite(spell.name))
       return true;
     return false;
   }
