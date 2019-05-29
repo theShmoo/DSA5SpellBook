@@ -9,10 +9,10 @@ import DSATooltip from '../controls/DSATooltip';
 
 const styles = theme => ({
   button: {
-    margin: 0.5*theme.spacing.unit,
+    margin: theme.spacing(0.5),
   },
   icon: {
-    margin: 0.5*theme.spacing.unit,
+    margin: theme.spacing(0.5),
     fontSize: 20,
   },
 });
