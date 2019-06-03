@@ -7,7 +7,12 @@ export default function FilterPropertiesWidget(props)
 {
   let handleChange = (val, property) => {
     let filter = {};
-    filter[property] = val.map( x => x.value);
+
+    if(val)
+      filter[property] = val.map( x => x.value);
+    else
+      filter[property] = [];
+
     props.onUserInput(filter);
   }
 
