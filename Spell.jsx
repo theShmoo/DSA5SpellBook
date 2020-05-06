@@ -3,15 +3,14 @@ import LazyLoad from 'react-lazyload';
 
 import DSALink from '../controls/DSALink';
 import DSAInfoBox from '../controls/DSAInfoBox';
+import FavoriteStar from '../controls/DSAFavoriteStar';
 
-import FavoriteStar from './FavoriteStar';
 import SpellProperties from './SpellProperties';
 import SpellExtensions from "./SpellExtensions";
 
 import {DSASpellClasses} from "../data/DSASpellClasses";
 
-function SpellMetaInfo(props) {
-  const {spellclass} = props;
+const SpellMetaInfo = ({spellclass}) => {
   const link = DSASpellClasses.link + DSASpellClasses.SpellClasses[spellclass].link;
   let tooltip = spellclass + " im Regelwiki";
   return (
@@ -19,21 +18,16 @@ function SpellMetaInfo(props) {
   );
 }
 
-function SpellTitle(props) {
-  const {favorites, name, link, onUserInput} = props;
+const SpellTitle = ({favorites, name, link, onUserInput}) => {
   const fav = (favorites.indexOf(name) >= 0);
   const handleFavClick = () => {
     onUserInput(name);
   }
 
   return <span>
-      <DSALink
-        tooltip={name + " im Regelwiki"}
-        href={link}>
-        {name}
-      </DSALink>
-      <FavoriteStar fav={fav} onClick={handleFavClick} />
-    </span>;
+    {name}
+    <FavoriteStar fav={fav} onClick={handleFavClick} />
+  </span>;
 }
 
 class Spell extends React.Component {

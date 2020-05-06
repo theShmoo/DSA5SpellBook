@@ -4,8 +4,8 @@ import DSAItemList from '../controls/DSAItemList';
 
 export default function SpellExtensions(props) {
   const {extensions} = props;
-  const items = Object.keys(extensions).map( (k) => {
-    return {name: extensions[k][0], value: extensions[k][1]};
+  const items = extensions.map( (e) => {
+    return {name: e.name, value: e.value};
   });
   if (items.length > 0) {
     return <DSAItemList

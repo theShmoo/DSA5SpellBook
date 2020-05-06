@@ -11,12 +11,11 @@ function SpellListMetaInfo(num_spells) {
 }
 
 function createSpell(spell, id, favoriteSpells, onFavoriteChange) {
-  const {name, link, spellclass, properties, spellextensions} = spell;
+  const {name, spellclass, properties, spellextensions} = spell;
   return (
     <DSAGridItem xs={12} sm={6} md={4} lg={4} key={id}>
       <Spell
         name={name}
-        link={link}
         spellclass={spellclass}
         properties={properties}
         extensions={spellextensions}
