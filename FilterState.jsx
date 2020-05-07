@@ -76,8 +76,8 @@ export default class FilterState {
     // load local state
     if(this.hasLocalStorage) {
       console.log("load local storage");
-      console.log(localStorage.getItem("filter"));
-      var storedFilter = JSON.parse(localStorage.getItem("filter"));
+      console.log(localStorage.getItem("spellfilter"));
+      var storedFilter = JSON.parse(localStorage.getItem("spellfilter"));
       if(storedFilter)
       {
         this._name = storedFilter._name;
@@ -92,7 +92,7 @@ export default class FilterState {
   saveToLocalStorage() {
     if(this.hasLocalStorage) {
       console.log("Save to local storage");
-      localStorage.setItem("filter", JSON.stringify(this));
+      localStorage.setItem("spellfilter", JSON.stringify(this));
       console.log(JSON.stringify(this));
     }
   }

@@ -18,7 +18,7 @@ const SpellMetaInfo = ({spellclass}) => {
   );
 }
 
-const SpellTitle = ({favorites, name, link, onUserInput}) => {
+const SpellTitle = ({favorites, name, onUserInput}) => {
   const fav = (favorites.indexOf(name) >= 0);
   const handleFavClick = () => {
     onUserInput(name);
